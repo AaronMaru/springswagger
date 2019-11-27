@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone repo and clean it') {
             steps {
-                bat "rmdir /s /q springswagger"
+                bat "del -f springswagger"
                 bat "git clone https://github.com/AaronMaru/springswagger.git"
                 bat "mvn clean -f springswagger"
             }
