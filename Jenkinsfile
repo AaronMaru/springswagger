@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone repo and clean it') {
             steps {
-                bat "mvn clean "
+                sh "mvn clean "
             }
         }
         stage('Test') {
