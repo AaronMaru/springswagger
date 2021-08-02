@@ -14,7 +14,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh "mvn package"
-                sh "java -jar target/integrate-0.0.1-SNAPSHOT.jar &"
+                sh "nohup java -jar target/integrate-0.0.1-SNAPSHOT.jar &"
             }
         }
     }
