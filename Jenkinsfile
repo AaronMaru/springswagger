@@ -14,7 +14,11 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh "mvn package"
-                sh 'nohup ./mvnw spring-boot:run -Dserver.port=8585 &'
+                sh "pid=\$(lsof -i:8585 -t); kill -TERM \$pid " 
+                  + "|| kill -KILL \$pid"
+                withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
+                    sh 'nohup java -jar integrate-0.0.1-SNAPSHOT.jar &'
+                }   
             }
         }
     }
