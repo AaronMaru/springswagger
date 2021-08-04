@@ -14,7 +14,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh "mvn package"
-                sh 'nohup java -jar target/integrate-0.0.1-SNAPSHOT.jar &'
+                sh 'nohup ./mvnw spring-boot:run -Dserver.port=8989 &'
             }
         }
     }
