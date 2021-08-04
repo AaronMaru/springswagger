@@ -15,7 +15,7 @@ pipeline {
             steps {
                 sh "mvn package"
                 withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
-                    sh 'nohup java -jar integrate-0.0.1-SNAPSHOT.jar &'
+                    sh 'nohup java -jar target/integrate-0.0.1-SNAPSHOT.jar &'
                 }   
             }
         }
