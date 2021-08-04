@@ -14,7 +14,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh "mvn package"
-                sh 'nohup ./mvnw spring-boot:run -Dserver.port=8989 &'
+                sh 'nohup ./mvnw spring-boot:run -Dserver.port=8585 &'
             }
         }
     }
